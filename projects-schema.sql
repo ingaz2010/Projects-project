@@ -7,16 +7,8 @@ create table project
 (
    project_id INT not null,
    project_name VARCHAR (128) NOT null,
-   estimated_hours DECIMAL
-   (
-      7,
-      2
-   ),
-   actual_hours DECIMAL
-   (
-      7,
-      2
-   ),
+   estimated_hours DECIMAL (7,2),
+   actual_hours DECIMAL (7,2),
    difficulty INT,
    notes TEXT,
    primary key (project_id)
@@ -27,11 +19,7 @@ create table material
    project_id INT not null,
    material_name VARCHAR (128) not NULL,
    num_required INT,
-   cost DECIMAL
-   (
-      7,
-      2
-   ),
+   cost DECIMAL(7,2),
    primary key (material_id),
    foreign key (project_id) references project (project_id) on delete CASCADE
 );
