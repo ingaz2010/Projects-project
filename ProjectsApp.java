@@ -14,12 +14,12 @@ import projects.service.ProjectService;
 public class ProjectsApp {
 	private ProjectService projectService = new ProjectService();
 	// @formatter:off
-			List<String> operations = new ArrayList<>(List.of(   // list of operations in menu
+	private List<String> operations = new ArrayList<>(List.of(   // list of operations in menu
 					"1) Add a project"
 					) );
 			// @formatter:on
 			
-			Scanner scanner = new Scanner(System.in);  //initialize scanner to take user's input
+	private Scanner scanner = new Scanner(System.in);  //initialize scanner to take user's input
 
 	
 	public static void main(String[] args) {
@@ -55,6 +55,7 @@ public class ProjectsApp {
 		
 	}
 
+	//get user's input for the project
 	private void createProject() {
 		String projectName = getStringInput("\nEnter the project name");
 		BigDecimal estimatedHours = getDecimalInput("Enter the estimated hours");
@@ -74,6 +75,7 @@ public class ProjectsApp {
 		System.out.println("You have successfully created project: " + DbProject);
 	}
 
+	// convert user's input into BigDecimal
 	private BigDecimal getDecimalInput(String prompt) {
 		String input = getStringInput(prompt);
 		if(Objects.isNull(input)) {
@@ -95,10 +97,11 @@ public class ProjectsApp {
 	//method prints operations and takes user's input as int
 	private int getUserSelection() {
 		printOperations();
-		int input = getIntInput("Enter a menu selection ");
+		Integer input = getIntInput("Enter a menu selection ");
 		return Objects.isNull(input) ? -1 : input;
 	}
 
+	//convert user's input into int
 	private Integer getIntInput(String prompt) {
 		String input = getStringInput(prompt);
 		if(Objects.isNull(input)) {
@@ -111,6 +114,7 @@ public class ProjectsApp {
 		}
 	}
 
+	//convert user's input into String
 	private String getStringInput(String prompt) {
 		System.out.print(prompt + ": ");
 		String input = scanner.nextLine();
